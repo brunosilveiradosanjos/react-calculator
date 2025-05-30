@@ -61,15 +61,44 @@
       }) {
         return React.createElement(
           as,
-          { className: `${textVariants[variant]} ${className}`, ...props },
+          {
+            className: `${textVariants[variant]} ${className ?? ""}`,
+            ...props,
+          },
           children
+        );
+      }
+
+      const buttonVariants = {
+        default: "bg-(--background)",
+        primary: "bg-(--primary)",
+      };
+
+      function Button({ variant = "default", className, children, ...props }) {
+        return (
+          <Text
+            as="button"
+            variant="heading"
+            className={`
+              flex items-center justify-center rounded-xl
+              p-3 cursor-pointer text-(--text)
+              bg-linear-(--gradient)
+              hover:bg-linear-(--gradient-hover)
+              shadow-(--shadow)
+              ${className ?? ""}
+              ${buttonVariants[variant]}
+              `}
+            {...props}
+          >
+            {children}
+          </Text>
         );
       }
 
       function App() {
         return (
-          <main className="py-28 px-4">
-            <Text variant="blast">Hello World</Text>
+          <main className="py-28 px-4 h-screen bg-[#6b6b6b]">
+            <Button>CE</Button>
           </main>
         );
       }
