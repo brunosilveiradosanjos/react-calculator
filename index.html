@@ -40,7 +40,9 @@
     </style>
   </head>
 
-  <body class="text-(--text) font-(--font-sans) bg-[#6b6b6b]">
+  <body
+    class="text-(--text) font-(--font-sans) bg-linear-[180deg,_#807ECE_0%,_#807ECE_100%] min-h-screen"
+  >
     <div id="root"></div>
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
@@ -191,10 +193,37 @@
         );
       }
 
+      function OperationHistory() {
+        return (
+          <Card
+            className={`
+              flex flex-col gap-[1.625rem] w-[22.25rem] sm:w-full
+              pt-14 px-8 pb-8
+              `}
+          >
+            <Text as="h1" variant="heading" className="mb-4">
+              Operation History
+            </Text>
+            <ul className="flex flex-col gap-3">
+              <Text as="li">1 + 1 = 2</Text>
+              <Text as="li">2 + 3 + 1 = 6</Text>
+              <Text as="li">2 + 3 = 5</Text>
+            </ul>
+          </Card>
+        );
+      }
+
       function App() {
         return (
-          <main className="py-12 px-4 h-full">
+          <main
+            className={`
+            py-12 px-4 sm:px-10 
+            flex flex-col sm:flex-row gap-2
+            items-center sm:items-stretch
+            `}
+          >
             <Calculator />
+            <OperationHistory />
           </main>
         );
       }
