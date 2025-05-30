@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <title>Rocketseat - React.js - Fundamentos</title>
 
     <style type="text/tailwindcss">
@@ -125,7 +129,9 @@
               {operation}
             </Text>
             <div className="flex items-center justify-between">
-              <Text variant="muted">=</Text>
+              <Text variant="muted">
+                <i className="fas fa-equals"></i>
+              </Text>
               <Text variant="blast">{result}</Text>
             </div>
           </div>
@@ -146,7 +152,7 @@
                 <Button className="w-16 h-16">CE</Button>
                 <Button className="flex-1 h-16">C</Button>
                 <Button className="w-16 h-16" variant="primary">
-                  /
+                  <i className="fas fa-divide"></i>
                 </Button>
               </div>
               <div className="flex gap-3">
@@ -154,7 +160,7 @@
                 <Button className="w-16 h-16">8</Button>
                 <Button className="w-16 h-16">9</Button>
                 <Button className="w-16 h-16" variant="primary">
-                  X
+                  <i className="fas fa-multiply"></i>
                 </Button>
               </div>
               <div className="flex gap-3">
@@ -162,7 +168,7 @@
                 <Button className="w-16 h-16">5</Button>
                 <Button className="w-16 h-16">6</Button>
                 <Button className="w-16 h-16" variant="primary">
-                  -
+                  <i className="fas fa-subtract"></i>
                 </Button>
               </div>
               <div className="flex gap-3">
@@ -170,14 +176,14 @@
                 <Button className="w-16 h-16">2</Button>
                 <Button className="w-16 h-16">3</Button>
                 <Button className="w-16 h-16" variant="primary">
-                  +
+                  <i className="fas fa-add"></i>
                 </Button>
               </div>
               <div className="flex gap-3">
                 <Button className="flex-1 h-16">0</Button>
                 <Button className="w-16 h-16">,</Button>
                 <Button className="w-16 h-16" variant="primary">
-                  =
+                  <i className="fas fa-equals"></i>
                 </Button>
               </div>
             </div>
