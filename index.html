@@ -105,7 +105,7 @@
         return (
           <div
             className={`
-              bg-(--background) shadow-(--shadow) 
+              bg-(--background) shadow-(--shadow)
               rounded-2xl
               ${className ?? ""}`}
             {...props}
@@ -115,6 +115,36 @@
         );
       }
 
+      const buttons = [
+        [
+          { input: "CE" },
+          { input: "C", className: "flex-1 h-16" },
+          { input: <i className="fas fa-divide"></i>, variant: "primary" },
+        ],
+        [
+          { input: "7" },
+          { input: "8" },
+          { input: "9" },
+          { input: <i className="fas fa-multiply"></i>, variant: "primary" },
+        ],
+        [
+          { input: "4" },
+          { input: "5" },
+          { input: "6" },
+          { input: <i className="fas fa-subtract"></i>, variant: "primary" },
+        ],
+        [
+          { input: "1" },
+          { input: "2" },
+          { input: "3" },
+          { input: <i className="fas fa-add"></i>, variant: "primary" },
+        ],
+        [
+          { input: "0", className: "flex-1 h-16" },
+          { input: "," },
+          { input: <i className="fas fa-equals"></i>, variant: "primary" },
+        ],
+      ];
       function CalculatorDisplay({ operation, result }) {
         return (
           <div
@@ -150,44 +180,19 @@
           >
             <CalculatorDisplay operation="1 + 1" result="2" />
             <div className="flex flex-col gap-3">
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">CE</Button>
-                <Button className="flex-1 h-16">C</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  <i className="fas fa-divide"></i>
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">7</Button>
-                <Button className="w-16 h-16">8</Button>
-                <Button className="w-16 h-16">9</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  <i className="fas fa-multiply"></i>
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">4</Button>
-                <Button className="w-16 h-16">5</Button>
-                <Button className="w-16 h-16">6</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  <i className="fas fa-subtract"></i>
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="w-16 h-16">1</Button>
-                <Button className="w-16 h-16">2</Button>
-                <Button className="w-16 h-16">3</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  <i className="fas fa-add"></i>
-                </Button>
-              </div>
-              <div className="flex gap-3">
-                <Button className="flex-1 h-16">0</Button>
-                <Button className="w-16 h-16">,</Button>
-                <Button className="w-16 h-16" variant="primary">
-                  <i className="fas fa-equals"></i>
-                </Button>
-              </div>
+              {buttons.map((row, index) => (
+                <div key={index} className="flex gap-3">
+                  {row.map((button, idx) => (
+                    <Button
+                      key={idx}
+                      className={button.className || "w-16 h-16"}
+                      variant={button.variant}
+                    >
+                      {button.input}
+                    </Button>
+                  ))}
+                </div>
+              ))}
             </div>
           </Card>
         );
@@ -217,7 +222,7 @@
         return (
           <main
             className={`
-            py-12 px-4 sm:px-10 
+            py-12 px-4 sm:px-10
             flex flex-col sm:flex-row gap-2
             items-center sm:items-stretch
             `}
